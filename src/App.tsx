@@ -25,10 +25,7 @@ export default function App() {
         <Context />
         <AreasOverview />
 
-        <AreaSection
-          area={field}
-          image={{ src: '/bimar-cv.png', caption: 'Компьютерное зрение на объекте: распознавание техники, людей и инцидентов (пример Bimar).' }}
-        />
+        <AreaSection area={field} />
         <AreaSection area={officeHard} />
         <AreaSection area={officeSoft} />
 

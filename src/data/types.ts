@@ -13,6 +13,12 @@ export interface Example {
   sourceUrl?: string;
 }
 
+export interface GalleryImage {
+  src: string;
+  caption: string;
+  credit?: string;
+}
+
 export interface AreaData {
   id: 'field' | 'office-hard' | 'office-soft';
   index: number;
@@ -21,6 +27,7 @@ export interface AreaData {
   subtitle: string;
   description: string;
   examples: Example[];
+  gallery?: GalleryImage[];
   cons: string[];
   pros?: string[];
   verdict: string;
