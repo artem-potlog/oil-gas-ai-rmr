@@ -3,6 +3,7 @@ import { ArrowRight, Clock, ScrollText, Scale, Layers3, Minus, Plus } from 'luci
 import Section from './Section';
 import Reveal from './Reveal';
 import { ErpDiagram, ProcurementDeepBlocks } from './ProcurementBlocks';
+import { RegulatoryCalendar, RegulatoryDeepBlocks } from './RegulatoryBlocks';
 import type { DeepDive } from '../data/types';
 
 export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
@@ -47,6 +48,9 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
 
       {/* AI поверх 1С:ERP (только для Procurement) */}
       {dd.procurement && <ErpDiagram p={dd.procurement} accent={dd.accent} />}
+
+      {/* Календарь-дашборд (только для регуляторной отчётности) */}
+      {dd.regulatory && <RegulatoryCalendar r={dd.regulatory} accent={dd.accent} />}
 
       {/* workflow timeline */}
       <div className="mt-12">
@@ -110,6 +114,9 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
 
       {/* should-cost / RAG / скоринг / Ariba-паритет / живые примеры (только для Procurement) */}
       {dd.procurement && <ProcurementDeepBlocks p={dd.procurement} accent={dd.accent} />}
+
+      {/* источники / RAG-extract / конвейер (только для регуляторной отчётности) */}
+      {dd.regulatory && <RegulatoryDeepBlocks r={dd.regulatory} accent={dd.accent} />}
 
       {/* ru realities */}
       <div className="mt-12">

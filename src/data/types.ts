@@ -119,6 +119,35 @@ export interface ProcurementExtras {
   liveExamples: LiveExample[];
 }
 
+export type RegDocStatus = 'draft' | 'review' | 'ready' | 'submitted' | 'overdue';
+
+export interface RegDoc {
+  name: string;
+  regulator: string;
+  frequency: string;
+  deadline: string;
+  status: RegDocStatus;
+}
+
+export interface RegSource {
+  name: string;
+  gives: string;
+  tag?: string;
+}
+
+export interface ExtractItem {
+  field: string;
+  value: string;
+  source: string;
+}
+
+export interface RegulatoryExtras {
+  sources: RegSource[];
+  calendar: RegDoc[];
+  pipeline: string[];
+  extractSample: ExtractItem[];
+}
+
 export interface DeepDive {
   id: string;
   badge: string;
@@ -133,6 +162,7 @@ export interface DeepDive {
   ruRealities: RuReality[];
   stack: string[];
   procurement?: ProcurementExtras;
+  regulatory?: RegulatoryExtras;
 }
 
 export interface EstimateRow {

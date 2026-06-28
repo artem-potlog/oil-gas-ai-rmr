@@ -27,16 +27,16 @@ export const estimates: EstimateRow[] = [
   },
   {
     useCaseId: 'decision-docs',
-    title: 'Документы для решений',
+    title: 'Регуляторная отчётность',
     cloud: {
-      months: '2,5–4 мес',
-      cost: '5–8 млн ₽',
-      note: 'RAG по шаблонам, один тип документа, LLM по API (YandexGPT/GigaChat), проверка ссылок.',
+      months: '3–4 мес',
+      cost: '5–9 млн ₽',
+      note: 'Календарь + 2–3 формы, RAG по методикам, LLM по API (YandexGPT/GigaChat), коннекторы к 1С.',
     },
     onPrem: {
-      months: '8–12 мес',
-      cost: '20–40 млн ₽',
-      note: 'On-prem LLM + GPU-серверы, закрытый контур, интеграция 1С:Документооборот, КЭП, дообучение.',
+      months: '8–13 мес',
+      cost: '22–42 млн ₽',
+      note: 'On-prem LLM + GPU, закрытый контур, интеграции 1С/АСУ ТП/ЛИМС, КЭП, ЛК ведомств, дообучение.',
     },
   },
   {
