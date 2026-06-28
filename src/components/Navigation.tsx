@@ -8,6 +8,7 @@ const links = [
   { id: 'procurement', label: 'Закупки' },
   { id: 'decision-docs', label: 'Документы' },
   { id: 'cash-calls', label: 'Инвойсы' },
+  { id: 'bdds', label: 'БДДС' },
   { id: 'estimates', label: 'Оценки' },
   { id: 'cta', label: 'Контакт' },
 ];

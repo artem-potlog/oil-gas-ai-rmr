@@ -1,4 +1,4 @@
-import { ShoppingCart, FileText, Banknote } from 'lucide-react';
+import { ShoppingCart, FileText, Banknote, TrendingUp } from 'lucide-react';
 import Section from './Section';
 import Reveal from './Reveal';
 
@@ -21,6 +21,12 @@ const picks = [
     why: 'Когнитивный кост-инженер сверяет договор, факт и счёт. AI окупается на пойманных завышенных объёмах, ставках и дублях оплат.',
     accent: '#34d399',
   },
+  {
+    icon: TrendingUp,
+    title: 'Когнитивный БДДС',
+    why: 'Родная для РФ идея сверх каталога: прогноз ликвидности для малого оператора. Кассовый разрыв виден за недели — и закрывается дёшево.',
+    accent: '#fbbf24',
+  },
 ];
 
 export default function WhyThree() {
@@ -28,10 +34,10 @@ export default function WhyThree() {
     <Section
       id="why-three"
       kicker="Фокус"
-      title="Почему именно эти три для России"
-      intro="Из девяти сценариев я выбираю три, где совпадают три условия: реальная боль и деньги, понятные регламенты для автоматизации и максимальная близость к компетенциям AI/ML-команды. Дальше разворачиваю каждый под российские реалии."
+      title="Почему именно эти четыре для России"
+      intro="Из девяти сценариев каталога я выбираю три, где совпадают реальная боль и деньги, понятные регламенты для автоматизации и близость к компетенциям AI/ML-команды — и добавляю четвёртую, родную для российского малого оператора идею (когнитивный БДДС). Дальше разворачиваю каждую под российские реалии."
     >
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {picks.map((p, i) => (
           <Reveal key={p.title} delay={i * 0.1}>
             <div className="glass h-full p-6">

@@ -5,6 +5,7 @@ import Reveal from './Reveal';
 import { ErpDiagram, ProcurementDeepBlocks } from './ProcurementBlocks';
 import { RegulatoryCalendar, RegulatoryDeepBlocks } from './RegulatoryBlocks';
 import { MatchDiagram, CostEngineerDeepBlocks } from './CostEngineerBlocks';
+import { CashflowForecast, CashflowDeepBlocks } from './CashflowBlocks';
 import type { DeepDive } from '../data/types';
 
 export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
@@ -55,6 +56,9 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
 
       {/* Диаграмма сверки (только для инвойсов / кост-инженера) */}
       {dd.costEngineer && <MatchDiagram c={dd.costEngineer} accent={dd.accent} />}
+
+      {/* График прогноза ликвидности (только для БДДС) */}
+      {dd.cashflow && <CashflowForecast c={dd.cashflow} accent={dd.accent} />}
 
       {/* workflow timeline */}
       <div className="mt-12">
@@ -124,6 +128,9 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
 
       {/* источники / чек-лист / реестр (только для инвойсов / кост-инженера) */}
       {dd.costEngineer && <CostEngineerDeepBlocks c={dd.costEngineer} accent={dd.accent} />}
+
+      {/* источники / притоки-оттоки / разрыв / сценарии (только для БДДС) */}
+      {dd.cashflow && <CashflowDeepBlocks c={dd.cashflow} accent={dd.accent} />}
 
       {/* ru realities */}
       <div className="mt-12">

@@ -181,6 +181,36 @@ export interface CostEngineerExtras {
   liveExamples: LiveExample[];
 }
 
+export interface CashWeek {
+  label: string;
+  balance: number;
+  inflow?: number;
+  outflow?: number;
+}
+
+export interface FlowItem {
+  label: string;
+  note: string;
+}
+
+export type ScenarioTone = 'base' | 'up' | 'stress';
+
+export interface CashScenario {
+  name: string;
+  effect: string;
+  tone: ScenarioTone;
+}
+
+export interface CashflowExtras {
+  sources: DataSource[];
+  forecast: { weeks: CashWeek[]; bufferMin: number; unit: string };
+  inflows: FlowItem[];
+  outflows: FlowItem[];
+  gap: { week: string; amount: string; detail: string };
+  recommendations: string[];
+  scenarios: CashScenario[];
+}
+
 export interface DeepDive {
   id: string;
   badge: string;
@@ -197,6 +227,7 @@ export interface DeepDive {
   procurement?: ProcurementExtras;
   regulatory?: RegulatoryExtras;
   costEngineer?: CostEngineerExtras;
+  cashflow?: CashflowExtras;
 }
 
 export interface EstimateRow {
