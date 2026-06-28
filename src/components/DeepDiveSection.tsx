@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Clock, ScrollText, Scale, Layers3, Minus, Plus } from 'lucide-react';
 import Section from './Section';
 import Reveal from './Reveal';
+import { ErpDiagram, ProcurementDeepBlocks } from './ProcurementBlocks';
 import type { DeepDive } from '../data/types';
 
 export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
@@ -43,6 +44,9 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
           {dd.businessValue}
         </div>
       </Reveal>
+
+      {/* AI поверх 1С:ERP (только для Procurement) */}
+      {dd.procurement && <ErpDiagram p={dd.procurement} accent={dd.accent} />}
 
       {/* workflow timeline */}
       <div className="mt-12">
@@ -103,6 +107,9 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
           </div>
         </div>
       </div>
+
+      {/* should-cost / RAG / скоринг / Ariba-паритет / живые примеры (только для Procurement) */}
+      {dd.procurement && <ProcurementDeepBlocks p={dd.procurement} accent={dd.accent} />}
 
       {/* ru realities */}
       <div className="mt-12">

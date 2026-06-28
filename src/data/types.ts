@@ -64,6 +64,61 @@ export interface RuReality {
   detail: string;
 }
 
+export interface DataSource {
+  name: string;
+  gives: string;
+  tag?: string;
+}
+
+export interface RagDoc {
+  name: string;
+  note: string;
+}
+
+export interface ScoringCriterion {
+  label: string;
+  weight: number;
+  agent: string;
+}
+
+export interface ScoredBid {
+  vendor: string;
+  scores: number[];
+  total: number;
+  verdict: string;
+  flagged?: boolean;
+}
+
+export interface AgentRole {
+  name: string;
+  role: string;
+}
+
+export interface ParityItem {
+  ariba: string;
+  ours: string;
+}
+
+export interface LiveExample {
+  name: string;
+  note: string;
+  url?: string;
+}
+
+export interface ProcurementExtras {
+  erp: { record: string[]; ai: string[]; note: string };
+  dataSources: DataSource[];
+  shouldCostBand: { min: string; base: string; max: string; unit: string };
+  ragCorpus: RagDoc[];
+  scoring: {
+    criteria: ScoringCriterion[];
+    agents: AgentRole[];
+    sampleBids: { columns: string[]; rows: ScoredBid[] };
+  };
+  aribaParity: ParityItem[];
+  liveExamples: LiveExample[];
+}
+
 export interface DeepDive {
   id: string;
   badge: string;
@@ -77,6 +132,7 @@ export interface DeepDive {
   workflow: WorkflowStep[];
   ruRealities: RuReality[];
   stack: string[];
+  procurement?: ProcurementExtras;
 }
 
 export interface EstimateRow {
