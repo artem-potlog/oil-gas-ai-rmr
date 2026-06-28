@@ -148,6 +148,39 @@ export interface RegulatoryExtras {
   extractSample: ExtractItem[];
 }
 
+export type InvoiceCheckStatus = 'pass' | 'flag' | 'info';
+
+export interface InvoiceCheck {
+  label: string;
+  status: InvoiceCheckStatus;
+  detail: string;
+}
+
+export interface InvoiceLine {
+  item: string;
+  claimed: string;
+  confirmed: string;
+  toPay: string;
+  flag?: boolean;
+}
+
+export type RegisterStatus = 'to_pay' | 'review' | 'held' | 'paid';
+
+export interface RegisterItem {
+  name: string;
+  amount: string;
+  status: RegisterStatus;
+}
+
+export interface CostEngineerExtras {
+  match: { contract: string[]; actuals: string[]; invoice: string[]; note: string };
+  sources: DataSource[];
+  checks: InvoiceCheck[];
+  invoiceLines: { columns: string[]; rows: InvoiceLine[] };
+  register: RegisterItem[];
+  liveExamples: LiveExample[];
+}
+
 export interface DeepDive {
   id: string;
   badge: string;
@@ -163,6 +196,7 @@ export interface DeepDive {
   stack: string[];
   procurement?: ProcurementExtras;
   regulatory?: RegulatoryExtras;
+  costEngineer?: CostEngineerExtras;
 }
 
 export interface EstimateRow {

@@ -17,7 +17,7 @@ import { estimates, estimateAssumptions, estimateDisclaimer } from '../data/esti
 const chartData = [
   { name: 'Закупки', Облако: 7.5, Локально: 35 },
   { name: 'Отчётность', Облако: 7, Локально: 32 },
-  { name: 'Cash Calls', Облако: 9, Локально: 42.5 },
+  { name: 'Инвойсы', Облако: 8, Локально: 35 },
 ];
 
 export default function EstimatesSection() {

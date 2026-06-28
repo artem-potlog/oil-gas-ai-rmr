@@ -4,6 +4,7 @@ import Section from './Section';
 import Reveal from './Reveal';
 import { ErpDiagram, ProcurementDeepBlocks } from './ProcurementBlocks';
 import { RegulatoryCalendar, RegulatoryDeepBlocks } from './RegulatoryBlocks';
+import { MatchDiagram, CostEngineerDeepBlocks } from './CostEngineerBlocks';
 import type { DeepDive } from '../data/types';
 
 export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
@@ -51,6 +52,9 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
 
       {/* Календарь-дашборд (только для регуляторной отчётности) */}
       {dd.regulatory && <RegulatoryCalendar r={dd.regulatory} accent={dd.accent} />}
+
+      {/* Диаграмма сверки (только для инвойсов / кост-инженера) */}
+      {dd.costEngineer && <MatchDiagram c={dd.costEngineer} accent={dd.accent} />}
 
       {/* workflow timeline */}
       <div className="mt-12">
@@ -117,6 +121,9 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
 
       {/* источники / RAG-extract / конвейер (только для регуляторной отчётности) */}
       {dd.regulatory && <RegulatoryDeepBlocks r={dd.regulatory} accent={dd.accent} />}
+
+      {/* источники / чек-лист / реестр (только для инвойсов / кост-инженера) */}
+      {dd.costEngineer && <CostEngineerDeepBlocks c={dd.costEngineer} accent={dd.accent} />}
 
       {/* ru realities */}
       <div className="mt-12">

@@ -7,7 +7,7 @@ const links = [
   { id: 'usecases', label: '9 юзкейсов' },
   { id: 'procurement', label: 'Закупки' },
   { id: 'decision-docs', label: 'Документы' },
-  { id: 'cash-calls', label: 'Cash Calls' },
+  { id: 'cash-calls', label: 'Инвойсы' },
   { id: 'estimates', label: 'Оценки' },
   { id: 'cta', label: 'Контакт' },
 ];
