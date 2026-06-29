@@ -63,6 +63,17 @@ export default function Context() {
               <li>· Опыт CFO и interim CEO в нефтегазе РФ</li>
               <li>· Опыт цифровой трансформации</li>
               <li>· Опыт в самом передовом операторе России (Газпром нефть)</li>
+              <li>
+                · Бизнес-трекинг в корпоративном венчурном акселераторе{' '}
+                <a
+                  href="https://techpartners.gazprom-neft.ru/industrix/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-brand-soft underline-offset-2 transition hover:underline"
+                >
+                  Industrix
+                </a>
+              </li>
               <li>· Классический ML в петрофизике</li>
               <li>· Аффилиация с GeoDataScience HWU</li>
               <li>· Карта релевантных юзкейсов под РФ</li>
