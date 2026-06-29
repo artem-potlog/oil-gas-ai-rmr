@@ -60,7 +60,18 @@ export default function Context() {
             <p className="mt-1 text-sm font-medium text-brand">геонауки · ML · процессы отрасли</p>
             <ul className="mt-5 space-y-2.5 text-sm text-slate-400">
               <li>· Понимание процессов нефтегаза изнутри</li>
-              <li>· Опыт CFO и interim CEO в нефтегазе РФ</li>
+              <li>· Опыт CFO в международном СП (с Repsol), проходящем цифровую трансформацию</li>
+              <li>
+                · Опыт Interim CEO в одной из наиболее технологически сложных с точки зрения бурения{' '}
+                <a
+                  href="https://www.rogtecmagazine.com/%d1%81%d0%be%d0%b2%d1%80%d0%b5%d0%bc%d0%b5%d0%bd%d0%bd%d1%8b%d0%b5-%d1%82%d0%b5%d1%85%d0%bd%d0%be%d0%bb%d0%be%d0%b3%d0%b8%d0%b8-%d0%b3%d0%b0%d0%b7%d0%bf%d1%80%d0%be%d0%bc-%d0%bd%d0%b5%d1%84/?lang=ru"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-brand-soft underline-offset-2 transition hover:underline"
+                >
+                  компаний
+                </a>
+              </li>
               <li>· Опыт цифровой трансформации</li>
               <li>· Опыт в самом передовом операторе России (Газпром нефть)</li>
               <li>
