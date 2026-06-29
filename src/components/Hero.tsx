@@ -33,7 +33,7 @@ export default function Hero() {
         </motion.span>
 
         <motion.h1
-          className="max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl"
+          className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7 }}
@@ -44,7 +44,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className="mt-7 max-w-4xl text-lg leading-relaxed text-slate-400 sm:text-xl"
+          className="mt-7 text-lg leading-relaxed text-slate-400 sm:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.7 }}
