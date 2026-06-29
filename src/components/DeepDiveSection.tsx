@@ -8,6 +8,8 @@ import { MatchDiagram, CostEngineerDeepBlocks } from './CostEngineerBlocks';
 import { CashflowForecast, CashflowDeepBlocks } from './CashflowBlocks';
 import type { DeepDive } from '../data/types';
 
+const POS = '#34d399';
+
 export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
   return (
     <Section
@@ -29,9 +31,9 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
         <Reveal delay={0.1}>
           <div
             className="h-full rounded-2xl border p-6"
-            style={{ borderColor: `${dd.accent}40`, backgroundColor: `${dd.accent}0f` }}
+            style={{ borderColor: `${POS}40`, backgroundColor: `${POS}0f` }}
           >
-            <div className="mb-2 inline-flex items-center gap-2 text-sm font-semibold" style={{ color: dd.accent }}>
+            <div className="mb-2 inline-flex items-center gap-2 text-sm font-semibold" style={{ color: POS }}>
               <Plus size={16} /> Как с AI
             </div>
             <p className="text-sm leading-relaxed text-slate-200">{dd.newWorld}</p>
@@ -42,7 +44,7 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
       <Reveal delay={0.15}>
         <div
           className="mt-4 rounded-2xl border px-5 py-4 text-center text-sm font-semibold text-white"
-          style={{ borderColor: `${dd.accent}40`, backgroundColor: `${dd.accent}14` }}
+          style={{ borderColor: `${POS}40`, backgroundColor: `${POS}14` }}
         >
           {dd.businessValue}
         </div>

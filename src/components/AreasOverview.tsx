@@ -26,7 +26,7 @@ export default function AreasOverview() {
               onClick={() => document.getElementById(`area-${area.id}`)?.scrollIntoView({ behavior: 'smooth' })}
               className={`group relative overflow-hidden rounded-2xl border p-7 text-left transition ${
                 area.recommended
-                  ? 'border-brand/40 bg-brand/[0.07] shadow-glow'
+                  ? 'border-accent-green/50 bg-accent-green/[0.08] shadow-[0_0_40px_-10px_rgba(52,211,153,0.55)]'
                   : 'border-white/10 bg-white/[0.04] hover:border-white/20'
               }`}
               initial={{ opacity: 0, y: 30 }}
@@ -36,7 +36,7 @@ export default function AreasOverview() {
               whileHover={{ y: -6 }}
             >
               {area.recommended && (
-                <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-brand px-2.5 py-1 text-[11px] font-bold text-white">
+                <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-accent-green px-2.5 py-1 text-[11px] font-bold text-ink-950">
                   <Star size={11} /> выбор
                 </span>
               )}

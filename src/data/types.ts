@@ -31,6 +31,7 @@ export interface AreaData {
   cons: string[];
   pros?: string[];
   verdict: string;
+  verdictTone: 'negative' | 'medium' | 'positive';
   recommended: boolean;
   accent: string;
 }

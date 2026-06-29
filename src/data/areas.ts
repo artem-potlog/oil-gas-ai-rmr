@@ -60,6 +60,7 @@ export const areas: AreaData[] = [
     ],
     verdict:
       'Высокий барьер входа и капиталоёмкость. Сильное направление, но «не для быстрого старта» партнёру без промыслового опыта и доступа к объектам.',
+    verdictTone: 'negative',
     recommended: false,
     accent: '#22d3ee',
   },
@@ -194,6 +195,7 @@ export const areas: AreaData[] = [
     ],
     verdict:
       'Очень содержательно и близко мне лично, но монетизация медленная: конкуренция с укоренившимся инженерным ПО и собственными командами операторов, длинный цикл валидации.',
+    verdictTone: 'medium',
     recommended: false,
     accent: '#a78bfa',
   },
@@ -239,7 +241,8 @@ export const areas: AreaData[] = [
     ],
     verdict:
       'Самый жизнеспособный путь в российских реалиях: низкий порог входа по железу, высокая ценность, близко к компетенциям RMR.',
+    verdictTone: 'positive',
     recommended: true,
-    accent: '#ff4d2e',
+    accent: '#34d399',
   },
 ];

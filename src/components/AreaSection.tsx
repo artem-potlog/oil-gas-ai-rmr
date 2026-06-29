@@ -9,8 +9,15 @@ interface AreaSectionProps {
   area: AreaData;
 }
 
+const verdictColor: Record<AreaData['verdictTone'], string> = {
+  negative: '#f87171',
+  medium: '#fbbf24',
+  positive: '#34d399',
+};
+
 export default function AreaSection({ area }: AreaSectionProps) {
   const [active, setActive] = useState<GalleryImage | null>(null);
+  const vColor = verdictColor[area.verdictTone];
 
   return (
     <Section
@@ -20,7 +27,7 @@ export default function AreaSection({ area }: AreaSectionProps) {
         <span className="inline-flex flex-wrap items-center gap-3">
           {area.title}
           {area.recommended && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-brand px-3 py-1 text-sm font-bold text-white align-middle">
+            <span className="inline-flex items-center gap-1 rounded-full bg-accent-green px-3 py-1 text-sm font-bold text-ink-950 align-middle">
               <Sparkles size={14} /> рекомендую
             </span>
           )}
@@ -102,11 +109,11 @@ export default function AreaSection({ area }: AreaSectionProps) {
         <div
           className="mt-5 flex items-start gap-3 rounded-2xl border p-5"
           style={{
-            borderColor: `${area.accent}40`,
-            backgroundColor: `${area.accent}10`,
+            borderColor: `${vColor}40`,
+            backgroundColor: `${vColor}12`,
           }}
         >
-          <AlertTriangle size={18} className="mt-0.5 shrink-0" style={{ color: area.accent }} />
+          <AlertTriangle size={18} className="mt-0.5 shrink-0" style={{ color: vColor }} />
           <p className="text-sm font-medium text-slate-200">{area.verdict}</p>
         </div>
       </Reveal>
