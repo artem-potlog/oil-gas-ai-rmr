@@ -1,12 +1,38 @@
-import type { EstimateRow } from './types';
+import type { EstimateRow, CostLogic } from './types';
 
 export const estimateAssumptions: string[] = [
   'Команда MVP: PM, доменный эксперт и senior AI/ML - по ~500 тыс ₽/мес; backend, frontend и middle-инженеры - по ~300 тыс ₽/мес (без налогов).',
   'Итого фонд ~2,4 млн ₽/мес без налогов; со страховыми взносами и накладными ~3 млн ₽/мес.',
   'Ставки сверены с рыночным аутстаф-прайсингом ML/PM (например, R77.ai): senior ML ~4000 ₽/час, lead ~5000, PM ~3500-4000, архитектор ~5700, бизнес-аналитик ~4900.',
-  'Облачный MVP - на российском облаке (Yandex Cloud / VK Cloud), без закупки железа.',
+  'Облачный MVP - на российском облаке (Yandex Cloud / VK Cloud / Selectel), без закупки железа.',
+  'AI-токены (Cursor · Opus 4.8 + инференс LLM на тестах) и облако (Selectel / Yandex) включены в стоимость облачного MVP; логика расчёта - ниже.',
   'Локальная имплементация включает GPU-серверы под on-prem LLM, интеграции с 1С/ЕИС/банком, ИБ и аттестацию контура, ОПР.',
 ];
+
+export const tokenLogic: CostLogic = {
+  title: 'AI-токены (Cursor · Opus 4.8)',
+  steps: [
+    'Цена Opus 4.8 (Anthropic): $5 / 1 млн входных, $25 / 1 млн выходных; кэш-чтение $0,50 / 1 млн; batch $2,5 / $12,5. Курс ~₽90/$.',
+    'Разработка в Cursor (агентный режим): ~2-3 активных инженера, эффективно ~$200-600/инж. в месяц (с кэшированием) ≈ ₽18-54 тыс/мес × 3-4 мес.',
+    'Инференс продукта на тестах: ~50-150 тыс. прогонов × ~(6 тыс. вход + 1,5 тыс. выход) токенов; массовые - batch/дешёвые модели, сложные шаги - Opus 4.8.',
+  ],
+  total: 'Итого: ~0,3-0,7 млн ₽ на продукт за MVP',
+  links: [{ label: 'Anthropic: цены Opus 4.8', url: 'https://www.anthropic.com/news/claude-opus-4-8' }],
+};
+
+export const cloudLogic: CostLogic = {
+  title: 'Облако (Selectel / Yandex Cloud)',
+  steps: [
+    'CPU-ВМ под сервисы и RAG: Yandex стандартная 4vCPU/8GB от ₽5 838/мес; 2-3 ВМ ≈ ₽15-35 тыс/мес.',
+    'GPU под LLM/эмбеддинги/ML (по требованию): Selectel GPU Line от ₽21 999/мес (entry), мощнее - дороже; почасовая оплата.',
+    'Хранилище + управляемая БД (PostgreSQL/вектор) + трафик: ~₽15-40 тыс/мес. Цены с НДС 22%.',
+  ],
+  total: 'Итого: ~₽60-160 тыс/мес × 3-4 мес ≈ 0,3-0,7 млн ₽ на продукт',
+  links: [
+    { label: 'Selectel: облачные серверы', url: 'https://selectel.ru/services/cloud/servers/?section=prices' },
+    { label: 'Yandex Cloud: Compute', url: 'https://yandex.cloud/ru/services/compute' },
+  ],
+};
 
 export const estimates: EstimateRow[] = [
   {
@@ -16,6 +42,7 @@ export const estimates: EstimateRow[] = [
       months: '3–4 мес',
       cost: '9–14 млн ₽',
       note: 'Один процесс закупки, чтение ЕИС, демо на реальной документации, AI-ревью договоров.',
+      infra: { tokens: '~0,3-0,6 млн ₽', cloud: '~0,3-0,6 млн ₽' },
     },
     onPrem: {
       months: '9–14 мес',
@@ -30,6 +57,7 @@ export const estimates: EstimateRow[] = [
       months: '3–4 мес',
       cost: '8–13 млн ₽',
       note: 'Календарь + 2–3 формы, RAG по методикам, LLM по API (YandexGPT/GigaChat), коннекторы к 1С.',
+      infra: { tokens: '~0,35-0,7 млн ₽', cloud: '~0,3-0,6 млн ₽' },
     },
     onPrem: {
       months: '8–13 мес',
@@ -44,6 +72,7 @@ export const estimates: EstimateRow[] = [
       months: '3–4 мес',
       cost: '9–14 млн ₽',
       note: 'OCR/RAG распознавание актов и счетов, 3-way match, демо на реальных договорах и актах.',
+      infra: { tokens: '~0,25-0,5 млн ₽', cloud: '~0,3-0,6 млн ₽' },
     },
     onPrem: {
       months: '9–14 мес',
@@ -58,6 +87,7 @@ export const estimates: EstimateRow[] = [
       months: '3–5 мес',
       cost: '9–14 млн ₽',
       note: 'Прогнозные модели притоков/оттоков, демо на исторических данных 1С/банка, платёжный календарь.',
+      infra: { tokens: '~0,15-0,35 млн ₽', cloud: '~0,35-0,7 млн ₽' },
     },
     onPrem: {
       months: '9–14 мес',

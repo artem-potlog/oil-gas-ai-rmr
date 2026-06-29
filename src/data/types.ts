@@ -231,6 +231,18 @@ export interface DeepDive {
   cashflow?: CashflowExtras;
 }
 
+export interface CostLogicLink {
+  label: string;
+  url: string;
+}
+
+export interface CostLogic {
+  title: string;
+  steps: string[];
+  total: string;
+  links: CostLogicLink[];
+}
+
 export interface EstimateRow {
   useCaseId: string;
   title: string;
@@ -238,6 +250,7 @@ export interface EstimateRow {
     months: string;
     cost: string;
     note: string;
+    infra: { tokens: string; cloud: string };
   };
   onPrem: {
     months: string;

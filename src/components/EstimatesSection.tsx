@@ -9,10 +9,11 @@ import {
   Legend,
   Cell,
 } from 'recharts';
-import { Cloud, Server, Info, Clock, Wallet } from 'lucide-react';
+import { Cloud, Server, Info, Clock, Wallet, Calculator, ExternalLink } from 'lucide-react';
 import Section from './Section';
 import Reveal from './Reveal';
-import { estimates, estimateAssumptions } from '../data/estimates';
+import { estimates, estimateAssumptions, tokenLogic, cloudLogic } from '../data/estimates';
+import type { CostLogic } from '../data/types';
 
 const chartData = [
   { name: 'Закупки', Облако: 11.5, Локально: 35 },
@@ -20,6 +21,40 @@ const chartData = [
   { name: 'Акты/счета', Облако: 11.5, Локально: 35 },
   { name: 'БДДС', Облако: 11.5, Локально: 35 },
 ];
+
+function LogicCard({ logic }: { logic: CostLogic }) {
+  return (
+    <div className="glass h-full p-5">
+      <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">
+        <Calculator size={16} className="text-accent-cyan" /> {logic.title}
+      </h4>
+      <ul className="space-y-2 text-xs leading-relaxed text-slate-400">
+        {logic.steps.map((s) => (
+          <li key={s} className="flex gap-2">
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent-cyan" />
+            {s}
+          </li>
+        ))}
+      </ul>
+      <div className="mt-3 rounded-xl border border-accent-cyan/25 bg-accent-cyan/[0.06] px-3 py-2 text-sm font-semibold text-white">
+        {logic.total}
+      </div>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {logic.links.map((l) => (
+          <a
+            key={l.url}
+            href={l.url}
+            target="_blank"
+            rel="noreferrer"
+            className="chip transition hover:border-accent-cyan/40 hover:text-white"
+          >
+            {l.label} <ExternalLink size={11} />
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function EstimatesSection() {
   return (
@@ -87,6 +122,10 @@ export default function EstimatesSection() {
                   </span>
                 </div>
                 <p className="mt-2 text-xs leading-relaxed text-slate-400">{e.cloud.note}</p>
+                <p className="mt-2 border-t border-accent-cyan/15 pt-2 text-[11px] leading-relaxed text-accent-cyan/80">
+                  в т.ч. AI-токены (Cursor · Opus 4.8) {e.cloud.infra.tokens} · облако (Selectel/Yandex){' '}
+                  {e.cloud.infra.cloud}
+                </p>
               </div>
 
               <div className="mt-3 rounded-xl border border-brand/25 bg-brand/[0.06] p-4">
@@ -107,6 +146,16 @@ export default function EstimatesSection() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={0.1}>
+        <h3 className="mb-4 mt-10 flex items-center gap-2 text-lg font-bold text-white">
+          <Calculator size={20} className="text-accent-cyan" /> Как считаем токены и облако
+        </h3>
+        <div className="grid gap-4 md:grid-cols-2">
+          <LogicCard logic={tokenLogic} />
+          <LogicCard logic={cloudLogic} />
+        </div>
+      </Reveal>
 
       <Reveal delay={0.1}>
         <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
