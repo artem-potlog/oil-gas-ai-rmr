@@ -32,7 +32,7 @@ const toneMeta: Record<ScenarioTone, { color: string; label: string }> = {
   stress: { color: '#f87171', label: 'стресс' },
 };
 
-/** График прогноза остатка ДС — рендерится до timeline. */
+/** График прогноза остатка ДС - рендерится до timeline. */
 export function CashflowForecast({ c, accent }: Props) {
   const { weeks, bufferMin, unit } = c.forecast;
   const minBalance = Math.min(...weeks.map((w) => w.balance));
@@ -114,7 +114,7 @@ export function CashflowForecast({ c, accent }: Props) {
             </ResponsiveContainer>
           </div>
           <p className="mt-2 text-xs text-slate-500">
-            Красная пунктирная линия — минимальный буфер. Точки ниже буфера — кассовый разрыв.
+            Красная пунктирная линия - минимальный буфер. Точки ниже буфера - кассовый разрыв.
           </p>
         </div>
       </Reveal>
@@ -122,7 +122,7 @@ export function CashflowForecast({ c, accent }: Props) {
   );
 }
 
-/** Источники, притоки/оттоки, разрыв+рекомендации, сценарии — после timeline. */
+/** Источники, притоки/оттоки, разрыв+рекомендации, сценарии - после timeline. */
 export function CashflowDeepBlocks({ c, accent }: Props) {
   return (
     <>
@@ -163,7 +163,7 @@ export function CashflowDeepBlocks({ c, accent }: Props) {
               {c.inflows.map((f) => (
                 <li key={f.label} className="text-sm">
                   <span className="font-medium text-white">{f.label}</span>
-                  <span className="text-slate-400"> — {f.note}</span>
+                  <span className="text-slate-400"> - {f.note}</span>
                 </li>
               ))}
             </ul>
@@ -178,7 +178,7 @@ export function CashflowDeepBlocks({ c, accent }: Props) {
               {c.outflows.map((f) => (
                 <li key={f.label} className="text-sm">
                   <span className="font-medium text-white">{f.label}</span>
-                  <span className="text-slate-400"> — {f.note}</span>
+                  <span className="text-slate-400"> - {f.note}</span>
                 </li>
               ))}
             </ul>

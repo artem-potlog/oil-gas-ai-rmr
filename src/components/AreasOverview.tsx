@@ -15,7 +15,7 @@ export default function AreasOverview() {
       id="areas"
       kicker="Карта направлений"
       title="Три области применения AI/ML в нефтегазе"
-      intro="Я делю весь ландшафт на три большие области. У каждой своя боль, барьер входа и экономика. Дальше пройдём по каждой — и увидим, какая реалистична для быстрого старта."
+      intro="Я делю весь ландшафт на три большие области. У каждой своя боль, барьер входа и экономика. Дальше пройдём по каждой - и увидим, какая реалистична для быстрого старта."
     >
       <div className="grid gap-5 md:grid-cols-3">
         {areas.map((area, i) => {
@@ -41,12 +41,12 @@ export default function AreasOverview() {
                 </span>
               )}
               <div
-                className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl"
+                className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl"
                 style={{ backgroundColor: `${area.accent}22`, color: area.accent }}
               >
                 <Icon size={24} />
               </div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <span className="block text-xs font-semibold uppercase tracking-widest text-slate-500">
                 {area.kicker}
               </span>
               <h3 className="mt-1 text-2xl font-bold text-white">{area.title}</h3>

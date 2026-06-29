@@ -63,7 +63,7 @@ export default function DeepDiveSection({ dd }: { dd: DeepDive }) {
       {/* workflow timeline */}
       <div className="mt-12">
         <h3 className="mb-6 flex items-center gap-2 text-lg font-bold text-white">
-          <ScrollText size={20} style={{ color: dd.accent }} /> Как работает агент — по шагам
+          <ScrollText size={20} style={{ color: dd.accent }} /> Как работает агент - по шагам
         </h3>
         <div className="relative">
           <div className="absolute left-[19px] top-2 bottom-2 w-px bg-white/10 md:left-[23px]" />

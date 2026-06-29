@@ -28,92 +28,88 @@ export default function AreaSection({ area }: AreaSectionProps) {
       }
       intro={area.description}
     >
-      <div className="grid gap-5 lg:grid-cols-2">
-        <div className="space-y-4">
-          {area.examples.map((ex, i) => (
-            <Reveal key={ex.title} delay={i * 0.04}>
-              <div className="glass p-5 transition hover:border-white/20">
-                <div className="flex items-start gap-3">
-                  <span
-                    className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg text-xs font-bold"
-                    style={{ backgroundColor: `${area.accent}22`, color: area.accent }}
-                  >
-                    {i + 1}
-                  </span>
-                  <div>
-                    <h4 className="font-semibold text-white">{ex.title}</h4>
-                    <p className="mt-1.5 text-sm leading-relaxed text-slate-400">{ex.detail}</p>
-                    {ex.source &&
-                      (ex.sourceUrl ? (
-                        <a
-                          href={ex.sourceUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-slate-500 transition hover:text-brand-soft"
-                        >
-                          {ex.source} <ExternalLink size={11} />
-                        </a>
-                      ) : (
-                        <span className="mt-2 inline-block text-xs font-medium text-slate-500">
-                          {ex.source}
-                        </span>
-                      ))}
-                  </div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {area.examples.map((ex, i) => (
+          <Reveal key={ex.title} delay={(i % 2) * 0.05}>
+            <div className="glass h-full p-5 transition hover:border-white/20">
+              <div className="flex items-start gap-3">
+                <span
+                  className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg text-xs font-bold"
+                  style={{ backgroundColor: `${area.accent}22`, color: area.accent }}
+                >
+                  {i + 1}
+                </span>
+                <div>
+                  <h4 className="font-semibold text-white">{ex.title}</h4>
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-400">{ex.detail}</p>
+                  {ex.source &&
+                    (ex.sourceUrl ? (
+                      <a
+                        href={ex.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-slate-500 transition hover:text-brand-soft"
+                      >
+                        {ex.source} <ExternalLink size={11} />
+                      </a>
+                    ) : (
+                      <span className="mt-2 inline-block text-xs font-medium text-slate-500">
+                        {ex.source}
+                      </span>
+                    ))}
                 </div>
               </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="space-y-5">
-          {area.pros && (
-            <Reveal delay={0.1}>
-              <div className="rounded-2xl border border-accent-green/25 bg-accent-green/[0.06] p-5">
-                <h4 className="mb-3 flex items-center gap-2 font-semibold text-accent-green">
-                  <Check size={18} /> Плюсы
-                </h4>
-                <ul className="space-y-2 text-sm text-slate-300">
-                  {area.pros.map((p) => (
-                    <li key={p} className="flex gap-2">
-                      <Check size={15} className="mt-0.5 shrink-0 text-accent-green" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          )}
-
-          <Reveal delay={0.15}>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-              <h4 className="mb-3 flex items-center gap-2 font-semibold text-slate-300">
-                <X size={18} className="text-brand" /> Минусы / барьеры
-              </h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                {area.cons.map((c) => (
-                  <li key={c} className="flex gap-2">
-                    <X size={15} className="mt-0.5 shrink-0 text-brand" />
-                    {c}
-                  </li>
-                ))}
-              </ul>
             </div>
           </Reveal>
-
-          <Reveal delay={0.2}>
-            <div
-              className="flex items-start gap-3 rounded-2xl border p-5"
-              style={{
-                borderColor: `${area.accent}40`,
-                backgroundColor: `${area.accent}10`,
-              }}
-            >
-              <AlertTriangle size={18} className="mt-0.5 shrink-0" style={{ color: area.accent }} />
-              <p className="text-sm font-medium text-slate-200">{area.verdict}</p>
-            </div>
-          </Reveal>
-        </div>
+        ))}
       </div>
+
+      {area.pros && (
+        <Reveal delay={0.1}>
+          <div className="mt-5 rounded-2xl border border-accent-green/25 bg-accent-green/[0.06] p-5">
+            <h4 className="mb-3 flex items-center gap-2 font-semibold text-accent-green">
+              <Check size={18} /> Плюсы
+            </h4>
+            <ul className="grid gap-2 text-sm text-slate-300 sm:grid-cols-2">
+              {area.pros.map((p) => (
+                <li key={p} className="flex gap-2">
+                  <Check size={15} className="mt-0.5 shrink-0 text-accent-green" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      )}
+
+      <Reveal delay={0.15}>
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+          <h4 className="mb-3 flex items-center gap-2 font-semibold text-slate-300">
+            <X size={18} className="text-brand" /> Минусы / барьеры
+          </h4>
+          <ul className="grid gap-2 text-sm text-slate-400 sm:grid-cols-2">
+            {area.cons.map((c) => (
+              <li key={c} className="flex gap-2">
+                <X size={15} className="mt-0.5 shrink-0 text-brand" />
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.2}>
+        <div
+          className="mt-5 flex items-start gap-3 rounded-2xl border p-5"
+          style={{
+            borderColor: `${area.accent}40`,
+            backgroundColor: `${area.accent}10`,
+          }}
+        >
+          <AlertTriangle size={18} className="mt-0.5 shrink-0" style={{ color: area.accent }} />
+          <p className="text-sm font-medium text-slate-200">{area.verdict}</p>
+        </div>
+      </Reveal>
 
       {area.gallery && area.gallery.length > 0 && (
         <div className="mt-12">

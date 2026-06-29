@@ -24,7 +24,7 @@ const statusMeta: Record<RegDocStatus, { label: string; color: string }> = {
   overdue: { label: 'просрочка', color: '#f87171' },
 };
 
-/** Календарь-дашборд — рендерится до timeline. */
+/** Календарь-дашборд - рендерится до timeline. */
 export function RegulatoryCalendar({ r, accent }: Props) {
   const total = r.calendar.length;
   const submitted = r.calendar.filter((d) => d.status === 'submitted').length;
@@ -99,7 +99,7 @@ export function RegulatoryCalendar({ r, accent }: Props) {
   );
 }
 
-/** Источники, RAG-extract, конвейер — рендерятся после timeline. */
+/** Источники, RAG-extract, конвейер - рендерятся после timeline. */
 export function RegulatoryDeepBlocks({ r, accent }: Props) {
   return (
     <>
@@ -189,7 +189,7 @@ export function RegulatoryDeepBlocks({ r, accent }: Props) {
             >
               <CheckCircle2 size={14} style={{ color: accent }} />
               <span className="text-slate-200">
-                Менеджер только проверяет глазами и отправляет — <ArrowRight size={11} className="inline" /> ноль ручного
+                Менеджер только проверяет глазами и отправляет - <ArrowRight size={11} className="inline" /> ноль ручного
                 перебивания цифр.
               </span>
             </div>

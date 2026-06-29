@@ -1,16 +1,24 @@
 import { useEffect, useState } from 'react';
 import { motion, useScroll } from 'framer-motion';
 
-const links = [
-  { id: 'areas', label: 'Три области' },
-  { id: 'recommendation', label: 'Рекомендация' },
-  { id: 'usecases', label: '9 юзкейсов' },
-  { id: 'procurement', label: 'Закупки' },
-  { id: 'decision-docs', label: 'Документы' },
-  { id: 'cash-calls', label: 'Инвойсы' },
-  { id: 'bdds', label: 'БДДС' },
-  { id: 'estimates', label: 'Оценки' },
-  { id: 'cta', label: 'Контакт' },
+const groups = [
+  {
+    label: 'крупный заказчик',
+    items: [{ id: 'usecases', label: '9 кейсов' }],
+  },
+  {
+    label: 'для малого РФ',
+    items: [
+      { id: 'procurement', label: 'Закупки' },
+      { id: 'decision-docs', label: 'Отчётность' },
+      { id: 'cash-calls', label: 'Акты и счета' },
+      { id: 'bdds', label: 'БДДС' },
+    ],
+  },
+  {
+    label: 'итог',
+    items: [{ id: 'estimates', label: 'Бюджет MVP' }],
+  },
 ];
 
 export default function Navigation() {
@@ -44,15 +52,23 @@ export default function Navigation() {
           </span>
           <span className="hidden text-sm font-semibold text-white sm:block">O&amp;G · AI</span>
         </button>
-        <nav className="hidden items-center gap-1 lg:flex">
-          {links.map((l) => (
-            <button
-              key={l.id}
-              onClick={() => go(l.id)}
-              className="rounded-full px-3 py-1.5 text-sm text-slate-400 transition hover:bg-white/5 hover:text-white"
-            >
-              {l.label}
-            </button>
+        <nav className="hidden items-center gap-2 lg:flex">
+          {groups.map((g, gi) => (
+            <div key={g.label} className="flex items-center gap-2">
+              {gi > 0 && <span className="h-5 w-px bg-white/10" />}
+              <span className="text-[10px] uppercase tracking-wider text-slate-600">{g.label}</span>
+              <div className="flex items-center gap-1">
+                {g.items.map((l) => (
+                  <button
+                    key={l.id}
+                    onClick={() => go(l.id)}
+                    className="rounded-full px-2.5 py-1.5 text-sm text-slate-400 transition hover:bg-white/5 hover:text-white"
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            </div>
           ))}
         </nav>
         <button

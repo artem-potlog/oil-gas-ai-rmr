@@ -22,12 +22,12 @@ interface Props {
   accent: string;
 }
 
-/** Блок 1: AI поверх 1С:ERP — рендерится до timeline. */
+/** Блок 1: AI поверх 1С:ERP - рендерится до timeline. */
 export function ErpDiagram({ p, accent }: Props) {
   return (
     <div className="mt-12">
       <h3 className="mb-6 flex items-center gap-2 text-lg font-bold text-white">
-        <Layers3 size={20} style={{ color: accent }} /> AI поверх 1С:ERP — дополнение, а не замена
+        <Layers3 size={20} style={{ color: accent }} /> AI поверх 1С:ERP - дополнение, а не замена
       </h3>
       <Reveal>
         <div className="glass overflow-hidden p-5 sm:p-7">
@@ -68,7 +68,7 @@ export function ErpDiagram({ p, accent }: Props) {
           {/* ERP layer */}
           <div className="rounded-2xl border border-white/12 bg-white/[0.05] p-5">
             <div className="mb-3 flex items-center gap-2 font-semibold text-slate-200">
-              <Database size={18} className="text-slate-300" /> 1С:ERP — система записи
+              <Database size={18} className="text-slate-300" /> 1С:ERP - система записи
             </div>
             <div className="flex flex-wrap gap-2">
               {p.erp.record.map((r) => (
@@ -86,7 +86,7 @@ export function ErpDiagram({ p, accent }: Props) {
   );
 }
 
-/** Блоки 2-6: источники, RAG, скоринг, паритет, живые примеры — рендерятся после timeline. */
+/** Блоки 2-6: источники, RAG, скоринг, паритет, живые примеры - рендерятся после timeline. */
 export function ProcurementDeepBlocks({ p, accent }: Props) {
   const totalWeight = p.scoring.criteria.reduce((s, c) => s + c.weight, 0);
 
@@ -162,7 +162,7 @@ export function ProcurementDeepBlocks({ p, accent }: Props) {
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: accent }} />
                     <span>
                       <span className="font-medium text-white">{d.name}</span>
-                      <span className="text-slate-400"> — {d.note}</span>
+                      <span className="text-slate-400"> - {d.note}</span>
                     </span>
                   </li>
                 ))}
@@ -198,7 +198,7 @@ export function ProcurementDeepBlocks({ p, accent }: Props) {
               >
                 <Quote size={14} className="mt-0.5 shrink-0" style={{ color: accent }} />
                 <span className="text-slate-200">
-                  «…в соответствии с п. 4 ст. 3 № 223-ФЗ и п. 7.2 Положения о закупках» —
+                  «…в соответствии с п. 4 ст. 3 № 223-ФЗ и п. 7.2 Положения о закупках» -
                   каждая формулировка привязана к источнику и проверяема.
                 </span>
               </div>
@@ -225,7 +225,7 @@ export function ProcurementDeepBlocks({ p, accent }: Props) {
                     <Bot size={15} className="mt-0.5 shrink-0" style={{ color: accent }} />
                     <span>
                       <span className="font-medium text-white">{a.name}</span>
-                      <span className="text-slate-400"> — {a.role}</span>
+                      <span className="text-slate-400"> - {a.role}</span>
                     </span>
                   </li>
                 ))}
@@ -293,11 +293,11 @@ export function ProcurementDeepBlocks({ p, accent }: Props) {
                         <td className="whitespace-nowrap px-4 py-2.5 font-medium text-white">{row.vendor}</td>
                         {row.scores.map((s, i) => (
                           <td key={i} className="px-4 py-2.5 text-slate-300">
-                            {empty ? '—' : s}
+                            {empty ? '-' : s}
                           </td>
                         ))}
                         <td className="px-4 py-2.5 font-bold" style={{ color: empty ? '#64748b' : accent }}>
-                          {empty ? '—' : row.total}
+                          {empty ? '-' : row.total}
                         </td>
                         <td className="px-4 py-2.5">
                           <span
@@ -327,7 +327,13 @@ export function ProcurementDeepBlocks({ p, accent }: Props) {
       <div className="mt-12 grid gap-4 lg:grid-cols-2">
         <Reveal>
           <div className="glass h-full p-5">
-            <h3 className="mb-4 text-lg font-bold text-white">Что уже умеет Ariba — и что воспроизводим</h3>
+            <h3 className="mb-2 text-lg font-bold text-white">Что уже умеет Ariba и что воспроизводим</h3>
+            <p className="mb-4 text-xs leading-relaxed text-slate-400">
+              SAP Ariba в России почти не используется, но мы берём её за бенчмарк намеренно: это мировой
+              лидер Source-to-Pay, который активно встраивает GenAI в свои воркфлоу. Эти возможности
+              воспроизводимы - отдельно или в связке с 1С, - а понимание российских закупок (223-ФЗ, квота
+              МСП, ЕИС) на нашей стороне даёт преимущество там, где у глобального вендора его нет.
+            </p>
             <div className="space-y-2.5">
               {p.aribaParity.map((row) => (
                 <div

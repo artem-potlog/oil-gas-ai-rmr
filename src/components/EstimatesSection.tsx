@@ -12,22 +12,22 @@ import {
 import { Cloud, Server, Info, Clock, Wallet } from 'lucide-react';
 import Section from './Section';
 import Reveal from './Reveal';
-import { estimates, estimateAssumptions, estimateDisclaimer } from '../data/estimates';
+import { estimates, estimateAssumptions } from '../data/estimates';
 
 const chartData = [
-  { name: 'Закупки', Облако: 7.5, Локально: 35 },
-  { name: 'Отчётность', Облако: 7, Локально: 32 },
-  { name: 'Инвойсы', Облако: 8, Локально: 35 },
-  { name: 'БДДС', Облако: 8, Локально: 35 },
+  { name: 'Закупки', Облако: 11.5, Локально: 35 },
+  { name: 'Отчётность', Облако: 10.5, Локально: 32 },
+  { name: 'Акты/счета', Облако: 11.5, Локально: 35 },
+  { name: 'БДДС', Облако: 11.5, Локально: 35 },
 ];
 
 export default function EstimatesSection() {
   return (
     <Section
       id="estimates"
-      kicker="Сроки и стоимость"
+      kicker="Бюджет MVP · сроки"
       title="Сколько стоит и сколько идёт"
-      intro="Грубая калибровка по каждому из четырёх юзкейсов: облачный MVP против полной локальной имплементации «в железе». Цифры — оценочные диапазоны в рублях, не коммерческое предложение."
+      intro="Грубая калибровка по каждому из четырёх юзкейсов: облачный MVP против полной локальной имплементации «в железе». Цифры - оценочные диапазоны в рублях."
     >
       <Reveal>
         <div className="glass p-5 sm:p-6">
@@ -109,23 +109,18 @@ export default function EstimatesSection() {
       </div>
 
       <Reveal delay={0.1}>
-        <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_auto]">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-            <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
-              <Info size={16} className="text-brand" /> Допущения оценки
-            </h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              {estimateAssumptions.map((a) => (
-                <li key={a} className="flex gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                  {a}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex items-center rounded-2xl border border-amber-400/25 bg-amber-400/[0.06] p-5">
-            <p className="text-xs leading-relaxed text-amber-200/90">{estimateDisclaimer}</p>
-          </div>
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+          <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
+            <Info size={16} className="text-brand" /> Допущения оценки
+          </h4>
+          <ul className="space-y-2 text-sm text-slate-400">
+            {estimateAssumptions.map((a) => (
+              <li key={a} className="flex gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                {a}
+              </li>
+            ))}
+          </ul>
         </div>
       </Reveal>
     </Section>

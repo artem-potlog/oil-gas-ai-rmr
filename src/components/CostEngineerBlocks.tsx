@@ -34,7 +34,7 @@ const registerMeta: Record<RegisterStatus, { label: string; color: string }> = {
   paid: { label: 'оплачено', color: '#64748b' },
 };
 
-/** Диаграмма сверки «договор ↔ факт ↔ счёт» — рендерится до timeline. */
+/** Диаграмма сверки «договор ↔ факт ↔ счёт» - рендерится до timeline. */
 export function MatchDiagram({ c, accent }: Props) {
   const cols = [
     { title: 'Договор', icon: FileText, items: c.match.contract },
@@ -80,7 +80,7 @@ export function MatchDiagram({ c, accent }: Props) {
             className="flex items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-sm font-semibold text-white"
             style={{ borderColor: `${accent}55`, backgroundColor: `${accent}12` }}
           >
-            <Cpu size={18} style={{ color: accent }} /> Кост-инженер AI — многосторонняя сверка
+            <Cpu size={18} style={{ color: accent }} /> Кост-инженер AI - многосторонняя сверка
           </div>
 
           {/* outcomes */}
@@ -102,7 +102,7 @@ export function MatchDiagram({ c, accent }: Props) {
   );
 }
 
-/** Источники, чек-лист, сверка счёта, реестр, живые примеры — после timeline. */
+/** Источники, чек-лист, сверка счёта, реестр, живые примеры - после timeline. */
 export function CostEngineerDeepBlocks({ c, accent }: Props) {
   return (
     <>
@@ -147,7 +147,7 @@ export function CostEngineerDeepBlocks({ c, accent }: Props) {
                     <m.Icon size={15} className="mt-0.5 shrink-0" style={{ color: m.color }} />
                     <span>
                       <span className="font-medium text-white">{ch.label}</span>
-                      <span className="text-slate-400"> — {ch.detail}</span>
+                      <span className="text-slate-400"> - {ch.detail}</span>
                     </span>
                   </li>
                 );
@@ -240,7 +240,7 @@ export function CostEngineerDeepBlocks({ c, accent }: Props) {
       {/* live examples */}
       <div className="mt-12">
         <h3 className="mb-6 flex items-center gap-2 text-lg font-bold text-white">
-          Живые примеры — вместо ручного SAP MM
+          Живые примеры - вместо ручного SAP MM
         </h3>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {c.liveExamples.map((ex) => {
