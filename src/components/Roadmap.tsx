@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Rocket, Handshake, Github, Mail } from 'lucide-react';
+import { Rocket, Handshake, Globe, Mail } from 'lucide-react';
 import Section from './Section';
 import Reveal from './Reveal';
 
@@ -65,15 +65,15 @@ export default function Roadmap() {
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="https://github.com/artem-potlog"
+              href="https://artempotlog.com"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-ink-950 transition hover:bg-slate-200"
             >
-              <Github size={18} /> github.com/artem-potlog
+              <Globe size={18} /> artempotlog.com
             </a>
             <a
-              href="mailto:"
+              href="mailto:artem.potlog@yandex.ru"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
             >
               <Mail size={18} /> Связаться

@@ -55,8 +55,10 @@ export default function Navigation() {
         <nav className="hidden items-center gap-2 lg:flex">
           {groups.map((g, gi) => (
             <div key={g.label} className="flex items-center gap-2">
-              {gi > 0 && <span className="h-5 w-px bg-white/10" />}
-              <span className="text-[10px] uppercase tracking-wider text-slate-600">{g.label}</span>
+              {gi > 0 && <span className="h-5 w-px bg-white/15" />}
+              <span className="rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-200">
+                {g.label}
+              </span>
               <div className="flex items-center gap-1">
                 {g.items.map((l) => (
                   <button

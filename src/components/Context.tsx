@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Brain, Layers, Plus, ArrowRight, Github, GraduationCap, ExternalLink } from 'lucide-react';
+import { Brain, Layers, Plus, ArrowRight, Github, GraduationCap, ExternalLink, Globe } from 'lucide-react';
 import Section from './Section';
 import Reveal from './Reveal';
 
@@ -68,6 +68,14 @@ export default function Context() {
               <li>· Карта релевантных юзкейсов под РФ</li>
             </ul>
             <div className="mt-5 flex flex-wrap gap-2">
+              <a
+                href="https://artempotlog.com"
+                target="_blank"
+                rel="noreferrer"
+                className="chip transition hover:border-brand/40 hover:text-white"
+              >
+                <Globe size={13} /> artempotlog.com
+              </a>
               <a
                 href="https://github.com/artem-potlog/well-log-facies-prediction"
                 target="_blank"

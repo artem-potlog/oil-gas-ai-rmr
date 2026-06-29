@@ -1,5 +1,5 @@
-import { ExternalLink, Github, GraduationCap, Building2, FileText, Sparkles } from 'lucide-react';
-import { sources, aiDisclosure } from '../data/sources';
+import { ExternalLink, Github, GraduationCap, Building2, FileText } from 'lucide-react';
+import { sources } from '../data/sources';
 
 const kindIcon = {
   repo: Github,
@@ -41,13 +41,8 @@ export default function Footer() {
           })}
         </div>
 
-        <div className="mt-8 flex items-start gap-2 rounded-2xl border border-white/10 bg-white/[0.02] p-4 text-xs text-slate-500">
-          <Sparkles size={14} className="mt-0.5 shrink-0 text-accent-violet" />
-          <p>{aiDisclosure}</p>
-        </div>
-
         <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 text-xs text-slate-600 sm:flex-row">
-          <span>© {new Date().getFullYear()} · AI в Oil &amp; Gas · подготовлено для red_mad_robot</span>
+          <span>© {new Date().getFullYear()} · AI в Oil &amp; Gas</span>
           <span>Артём · O&amp;G × AI/ML</span>
         </div>
       </div>

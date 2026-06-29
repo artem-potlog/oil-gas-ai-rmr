@@ -40,15 +40,17 @@ export default function AreasOverview() {
                   <Star size={11} /> выбор
                 </span>
               )}
-              <div
-                className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl"
-                style={{ backgroundColor: `${area.accent}22`, color: area.accent }}
-              >
-                <Icon size={24} />
+              <div className="mb-4 flex items-center gap-3">
+                <div
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                  style={{ backgroundColor: `${area.accent}22`, color: area.accent }}
+                >
+                  <Icon size={22} />
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                  {area.kicker}
+                </span>
               </div>
-              <span className="block text-xs font-semibold uppercase tracking-widest text-slate-500">
-                {area.kicker}
-              </span>
               <h3 className="mt-1 text-2xl font-bold text-white">{area.title}</h3>
               <p className="mt-1 text-sm font-medium" style={{ color: area.accent }}>
                 {area.subtitle}
