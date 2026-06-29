@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import {
   ResponsiveContainer,
   BarChart,
   Bar,
+  PieChart,
+  Pie,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -9,11 +12,100 @@ import {
   Legend,
   Cell,
 } from 'recharts';
-import { Cloud, Server, Info, Clock, Wallet, Calculator, ExternalLink } from 'lucide-react';
+import { Cloud, Server, Info, Clock, Wallet, Calculator, ExternalLink, PieChart as PieIcon } from 'lucide-react';
 import Section from './Section';
 import Reveal from './Reveal';
-import { estimates, estimateAssumptions, tokenLogic, cloudLogic } from '../data/estimates';
+import { estimates, estimateAssumptions, tokenLogic, cloudLogic, mvpBreakdown } from '../data/estimates';
 import type { CostLogic } from '../data/types';
+
+const breakdownColors = { team: '#a78bfa', tokens: '#22d3ee', cloud: '#34d399' };
+
+function MvpDonut() {
+  const [sel, setSel] = useState(0);
+  const p = mvpBreakdown[sel];
+  const total = p.team + p.tokens + p.cloud;
+  const data = [
+    { name: 'Команда', value: p.team, color: breakdownColors.team },
+    { name: 'AI-токены', value: p.tokens, color: breakdownColors.tokens },
+    { name: 'Облако', value: p.cloud, color: breakdownColors.cloud },
+  ];
+  const fmt = (v: number) => `${v.toFixed(2).replace('.', ',')} млн ₽`;
+
+  return (
+    <div className="glass p-5 sm:p-6">
+      <div className="mb-4 flex flex-wrap gap-2">
+        {mvpBreakdown.map((b, i) => (
+          <button
+            key={b.id}
+            onClick={() => setSel(i)}
+            className={`rounded-full px-3 py-1.5 text-xs font-medium transition ${
+              i === sel
+                ? 'bg-accent-cyan text-ink-950'
+                : 'border border-white/10 bg-white/5 text-slate-300 hover:text-white'
+            }`}
+          >
+            {b.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid items-center gap-4 sm:grid-cols-2">
+        <div className="relative h-64">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={data}
+                dataKey="value"
+                nameKey="name"
+                innerRadius={68}
+                outerRadius={100}
+                paddingAngle={2}
+                stroke="none"
+              >
+                {data.map((d) => (
+                  <Cell key={d.name} fill={d.color} />
+                ))}
+              </Pie>
+              <Tooltip
+                contentStyle={{
+                  background: '#0a0e1a',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  borderRadius: 12,
+                  color: '#e2e8f0',
+                  fontSize: 13,
+                }}
+                formatter={(v: number) => [fmt(v), '']}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+          <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
+            <span className="text-[11px] uppercase tracking-wider text-slate-500">итого MVP</span>
+            <span className="text-2xl font-extrabold text-white">≈ {fmt(total)}</span>
+          </div>
+        </div>
+
+        <ul className="space-y-2.5">
+          {data.map((d) => (
+            <li key={d.name} className="flex items-center justify-between gap-3 text-sm">
+              <span className="inline-flex items-center gap-2 text-slate-300">
+                <span className="h-3 w-3 rounded-sm" style={{ backgroundColor: d.color }} />
+                {d.name}
+              </span>
+              <span className="text-white">
+                <span className="font-semibold">{fmt(d.value)}</span>
+                <span className="ml-2 text-xs text-slate-500">{Math.round((d.value / total) * 100)}%</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        Общая сумма MVP = фонд команды (≈3 млн ₽/мес × срок) + AI-токены + облако. Команда даёт основную долю;
+        токены и облако - малая часть (детализация ниже).
+      </p>
+    </div>
+  );
+}
 
 const chartData = [
   { name: 'Закупки', Облако: 11.5, Локально: 35 },
@@ -146,6 +238,13 @@ export default function EstimatesSection() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={0.1}>
+        <h3 className="mb-4 mt-10 flex items-center gap-2 text-lg font-bold text-white">
+          <PieIcon size={20} className="text-accent-cyan" /> Из чего складывается бюджет MVP
+        </h3>
+        <MvpDonut />
+      </Reveal>
 
       <Reveal delay={0.1}>
         <h3 className="mb-4 mt-10 flex items-center gap-2 text-lg font-bold text-white">

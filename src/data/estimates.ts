@@ -34,6 +34,15 @@ export const cloudLogic: CostLogic = {
   ],
 };
 
+// Структура бюджета облачного MVP по продукту, млн ₽ (середины диапазонов):
+// команда = ~3 млн ₽/мес (с налогами) × срок; токены и облако - середины infra-диапазонов.
+export const mvpBreakdown: { id: string; label: string; team: number; tokens: number; cloud: number }[] = [
+  { id: 'procurement', label: 'Закупки', team: 10.5, tokens: 0.45, cloud: 0.45 },
+  { id: 'decision-docs', label: 'Отчётность', team: 10.5, tokens: 0.5, cloud: 0.45 },
+  { id: 'cash-calls', label: 'Акты/счета', team: 10.5, tokens: 0.4, cloud: 0.45 },
+  { id: 'bdds', label: 'БДДС', team: 12.0, tokens: 0.25, cloud: 0.5 },
+];
+
 export const estimates: EstimateRow[] = [
   {
     useCaseId: 'procurement',
