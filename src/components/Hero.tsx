@@ -44,7 +44,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className="mt-7 max-w-2xl text-lg leading-relaxed text-slate-400 sm:text-xl"
+          className="mt-7 max-w-4xl text-lg leading-relaxed text-slate-400 sm:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.7 }}

@@ -16,7 +16,7 @@ export default function Section({ id, kicker, title, intro, children, className 
       <div className="section-pad">
         {(kicker || title) && (
           <Reveal>
-            <header className="mb-12 max-w-3xl">
+            <header className="mb-12">
               {kicker && (
                 <span className="chip mb-4 uppercase tracking-[0.2em] text-brand-soft">{kicker}</span>
               )}
